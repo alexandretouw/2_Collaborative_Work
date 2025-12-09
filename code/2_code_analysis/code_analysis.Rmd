@@ -36,6 +36,8 @@ library(gtable)
 library(grid)
 library(ggtext)
 library(tidyverse)
+library(fixest)
+library(texreg)
 
 #Data import
 members_fun <- read_csv(file = here("data_out", "dial_members_fun.csv"))
@@ -162,14 +164,52 @@ desc_table_raxis <- members_fun %>%
 
 ```
 
-
+\newpage
 # Simple analysis example
 
 And here is a stupid analysis :
 
-```{r stupid-regression}
+```{r stupid-regression, results='asis', message=F, warning=F}
+#Deux models
+model_1 <- feols(life_satisfaction ~ i(as.factor(status), ref = "Doctorant") + coffee_cups_week + i(as.factor(has_cat)), data = members_fun, cluster = ~axis)
 
-#mod_stat <- lm(life_satisfaction ~ i.(status) + coffee_cups_week + has_cat, data = members_fun)
+#model_2 <- feols(life_satisfaction ~ i(as.factor(status), ref = "Doctorant") + coffee_cups_week + i(as.factor(has_cat)) + i(axis), data = members_fun, cluster = ~axis)
+
+#List of models 
+list_models <- list(model_1)
+
+#Mean doctorants
+mean_doctorants <- mean(members_fun$life_satisfaction[members_fun$status=="Doctorant"], na.rm = T)
+
+#Tableau texreg
+stupidreg <- texreg(list_models, 
+       digits = 2,
+       stars = c(0.1, 0.05, 0.01),
+       caption = "Stupid regression examples",
+       caption.above = TRUE,
+       custom.coef.map = list("as.factor(status)::Doctorante" = "Doctorante", "as.factor(status)::Post-doc"="Post-Doc", "coffee_cups_week"="Nb. Coffee cups/week", "as.factor(has_cat)::1"="Has a cat"),
+       custom.model.names = c("Model 1"
+                              # ,
+                              # "Model 2"
+                              ),
+       gof.ignore = c("R2 (proj model)", "Adj.R2 (proj model)", "R^2", "Adj. R^2"),
+       custom.gof.rows = list("Research Axis FE" = c("Non"),
+                              "Moy. Doctorants" = c(mean_doctorants)),
+       # # custom.header = list(
+       #   "\\textbf{Engagement éducation}" = 1:3,
+       #   "\\textbf{Citoyenneté}" = 4:6,
+       #   "\\textbf{Intégration}" = 7:10),
+       custom.note = paste0("Cluster au niveau des thèmes de recherche"),
+       scalebox = 1.0,
+       use.packages = FALSE,
+       booktabs = TRUE,
+       float.pos = "h")
+
+#Save as .tex format
+writeLines(stupidreg, paste(tab_dir,"stupidreg.tex", sep = "/"))
+
+#Present the table in the pdf to keep track
+stupidreg
 
 ```
 

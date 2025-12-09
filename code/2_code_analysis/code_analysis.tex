@@ -146,8 +146,42 @@ Variable & Nb. Obs & Mean & SD & Min & Max\\
 \end{threeparttable}}
 \end{table}
 
+\newpage
+
 \section{Simple analysis example}\label{simple-analysis-example}
 
 And here is a stupid analysis :
+
+\begin{table}[h]
+\caption{Stupid regression examples}
+\begin{center}
+\scalebox{1}{
+\begin{tabular}{l c}
+\toprule
+ & Model 1 \\
+\midrule
+Doctorante              & $-0.19$    \\
+                        & $(0.48)$   \\
+Post-Doc                & $0.58$     \\
+                        & $(0.75)$   \\
+Nb. Coffee cups/week    & $0.01$     \\
+                        & $(0.03)$   \\
+Has a cat               & $0.61^{*}$ \\
+                        & $(0.29)$   \\
+\midrule
+Research Axis FE        & Non        \\
+Moy. Doctorants         & $7.90$     \\
+Num. obs.               & $27$       \\
+R$^2$ (full model)      & $0.08$     \\
+R$^2$ (proj model)      & $$         \\
+Adj. R$^2$ (full model) & $-0.08$    \\
+Adj. R$^2$ (proj model) & $$         \\
+\bottomrule
+\multicolumn{2}{l}{\scriptsize{Cluster au niveau des thèmes de recherche}}
+\end{tabular}
+}
+\label{table:coefficients}
+\end{center}
+\end{table}
 
 \end{document}
