@@ -1,0 +1,74 @@
+---
+title: "Quick data analysis"
+author: "The R Lobby"
+date: "2025-12-09"
+output: 
+  pdf_document:
+    toc: true
+    toc_depth: 4
+    number_sections: true
+    keep_tex: true
+abstract: |
+  | This document quickly presents some code to export tables and figures in the case of collaborative work with Github and Overleaf integration.
+---
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = F, warning=F, message=F)
+
+#We clear the environment 
+rm(list=ls())
+
+#Useful libraries
+library(dplyr)
+library(readr)
+library(xtable) #To format tables and export them in .tex format
+library(kableExtra) #To visualise tables in a PDF document
+library(readxl) # To import xls files
+library(haven) #To import .dta files
+library(here) #To correctly set the working directory
+library(reshape2) #To modify dataframes
+library(stringr) #To substract strings
+library(collapse) #For fast data transformation
+library(ggplot2) #For figures
+library(cowplot) #For multiple figures
+library(gtable)
+library(grid)
+library(ggtext)
+library(tidyverse)
+
+#Data import
+members_fun <- read_csv(file = here("data_out", "dial_members_fun.csv"))
+
+#Set some interesting paths
+fig_dir <- here::here("paper_presentation", "figures")
+tab_dir <- here::here("paper_presentation", "tables")
+
+```
+
+
+# Descriptive statistics
+
+```{r fig-meetings-satisfaction, fig.align='center', fig.cap="More meetings, more satisfaction ?", fig.height=, fig.show='hold', fig.width=11, message=FALSE, warning=FALSE, results='asis'}
+
+#Prepare the plot
+fig_meetings_satisfaction <- ggplot(members_fun, aes(x = meetings_month, y = life_satisfaction)) +
+  geom_point() +
+  geom_smooth(method = "lm", se = FALSE) +
+  labs(
+    title    = "More meetings, more satisfaction ?",
+    x        = "Number of meetings/month",
+    y        = "Life Satisfaction(1–10)",
+    caption  = "Fictious data"
+  )
+
+#Display the plot
+fig_meetings_satisfaction
+
+#Save the plot
+ggsave(filename = "meetings_satisfaction.png", plot = fig_meetings_satisfaction, path = fig_dir, limitsize=FALSE, width = 11, height = 5)
+
+```
+
+
+
