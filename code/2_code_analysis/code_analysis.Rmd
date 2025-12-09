@@ -46,10 +46,13 @@ tab_dir <- here::here("paper_presentation", "tables")
 
 ```
 
+\newpage
 
 # Descriptive statistics
 
-```{r fig-meetings-satisfaction, fig.align='center', fig.cap="More meetings, more satisfaction ?", fig.height=, fig.show='hold', fig.width=11, message=FALSE, warning=FALSE, results='asis'}
+Here are some basic descriptive statistics about our sample with a stupid figure.
+
+```{r fig-meetings-satisfaction, fig.align='center', fig.cap="More meetings, more satisfaction ?", fig.height=5, fig.show='hold', fig.width=11, message=FALSE, warning=FALSE, results='asis'}
 
 #Prepare the plot
 fig_meetings_satisfaction <- ggplot(members_fun, aes(x = meetings_month, y = life_satisfaction)) +
@@ -71,6 +74,102 @@ ggsave(filename = "meetings_satisfaction.png", plot = fig_meetings_satisfaction,
 ```
 
 
+And a stupid table 
+
+```{r stupid-descriptive-statistics-table}
+#List of variables
+vars <- c(
+  "coffee_cups_week",
+  "git_commits",
+  "overleaf_projects",
+  "meetings_month",
+  "has_cat",
+  "life_satisfaction"
+)
+
+#Generate the descriptive statistics table 
+desc_table <- members_fun %>%
+  summarise( across(all_of(vars),
+             list(
+               n = ~sum(!is.na(.)),
+               mean = ~mean(., na.rm = TRUE),
+               sd = ~sd(., na.rm = TRUE),
+               min = ~min(., na.rm = TRUE), 
+               max = ~max(., na.rm = TRUE)),
+             .names = "{.col}_{.fn}"),
+            .groups = "drop") %>%
+              pivot_longer(
+                everything(),
+                names_to = c("variable", "stat"),
+                # REGEX: capture everything before last "_" and everything after
+                names_pattern = "(.+)_(n|mean|sd|min|max)$",
+                values_to = "value") %>%
+              pivot_wider(
+                names_from = stat,
+                values_from = value)
+
+desc_table$variable <- c(
+  "Coffee cups/week",
+  "Nb. Git commits",
+  "Nb. Overleaf projects",
+  "Nb. Meetings/month",
+  "Has a cat",
+  "Life satisfaction Index (1-10)"
+)
+
+#Kable 
+k_desc_table <- kable(desc_table,
+                       linesep = "",
+                      digits = 1, 
+                      align = c("l","c", "c", "c", "c", "c"),
+                      caption = "\\label{tab:desc-stats}Descriptive statistics of the sample of DIAL PhD Candidates",
+                      format = "latex",
+                      booktabs = TRUE,
+                      col.names = c("Variable","Nb. Obs", "Mean", "SD", "Min", "Max"),
+                      row.names = F, 
+                      escape = F) %>%
+ kable_styling(latex_options = c("hold_position","scale_down")) %>%
+  row_spec(0, bold = F) %>%
+  add_header_above(c(" ", "I" = 1, "can add"= 2, "stuff above" = 2)) %>%
+  pack_rows("And create", 1, 2) %>%
+  pack_rows("some random", 3, 4) %>%
+  pack_rows("groupings", 5, 6) %>%
+  footnote(general = "Source is bullshit extracted from the DIAL-IRD website on December 2025. Authors' calculations.", general_title = "Notes:", threeparttable = T,  footnote_as_chunk = T)
+
+#Save as .tex format
+writeLines(k_desc_table, paste(tab_dir,"desc_stats.tex", sep = "/"))
+
+#Present the table in the pdf to keep track
+k_desc_table
+
+```
+
+
+```{r table-by-axis, eval=F}
+
+desc_table_raxis <- members_fun %>%
+  group_by(axis) %>% 
+  summarise( n =n(),
+             across(all_of(vars),
+             list(
+               mean = ~mean(., na.rm = TRUE),
+               sd = ~sd(., na.rm = TRUE),
+               min = ~min(., na.rm = TRUE), 
+               max = ~max(., na.rm = TRUE)),
+             .names = "{.col}_{.fn}"),
+            .groups = "drop")
+
+
+```
+
+
 # Simple analysis example
 
+And here is a stupid analysis :
+
+```{r stupid-regression}
+
+#mod_stat <- lm(life_satisfaction ~ i.(status) + coffee_cups_week + has_cat, data = members_fun)
+
+```
 

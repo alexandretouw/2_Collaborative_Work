@@ -1,0 +1,144 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+]{article}
+\usepackage{amsmath,amssymb}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math} % this also loads fontspec
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else
+  % xetex/luatex font selection
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\usepackage[margin=1in]{geometry}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{5}
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{multirow}
+\usepackage{wrapfig}
+\usepackage{float}
+\usepackage{colortbl}
+\usepackage{pdflscape}
+\usepackage{tabu}
+\usepackage{threeparttable}
+\usepackage{threeparttablex}
+\usepackage[normalem]{ulem}
+\usepackage{makecell}
+\usepackage{xcolor}
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+\usepackage{bookmark}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same}
+\hypersetup{
+  pdftitle={Quick data analysis},
+  pdfauthor={The R Lobby},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+
+\title{Quick data analysis}
+\author{The R Lobby}
+\date{2025-12-09}
+
+\begin{document}
+\maketitle
+\begin{abstract}
+This document quickly presents some code to export tables and figures in
+the case of collaborative work with Github and Overleaf integration.
+\end{abstract}
+
+{
+\setcounter{tocdepth}{4}
+\tableofcontents
+}
+\section{Descriptive statistics}\label{descriptive-statistics}
+
+\begin{figure}
+
+{\centering \includegraphics{code_analysis_files/figure-latex/fig-meetings-satisfaction-1} 
+
+}
+
+\caption{More meetings, more satisfaction ?}\label{fig:fig-meetings-satisfaction}
+\end{figure}
+
+\begin{table}[!h]
+\centering
+\caption{\label{tab:stupid-descriptive-statistics-table}\label{tab:desc-stats}Descriptive statistics of the sample of DIAL PhD Candidates}
+\centering
+\resizebox{\ifdim\width>\linewidth\linewidth\else\width\fi}{!}{
+\begin{threeparttable}
+\begin{tabular}[t]{lccccc}
+\toprule
+\multicolumn{1}{c}{ } & \multicolumn{1}{c}{I} & \multicolumn{2}{c}{can add} & \multicolumn{2}{c}{stuff above} \\
+\cmidrule(l{3pt}r{3pt}){2-2} \cmidrule(l{3pt}r{3pt}){3-4} \cmidrule(l{3pt}r{3pt}){5-6}
+Variable & Nb. Obs & Mean & SD & Min & Max\\
+\midrule
+\addlinespace[0.3em]
+\multicolumn{6}{l}{\textbf{And create}}\\
+\hspace{1em}Coffee cups/week & 27 & 25.9 & 8.7 & 11.0 & 39.0\\
+\hspace{1em}Nb. Git commits & 27 & 100.1 & 59.8 & 6.0 & 192.0\\
+\addlinespace[0.3em]
+\multicolumn{6}{l}{\textbf{some random}}\\
+\hspace{1em}Nb. Overleaf projects & 27 & 6.9 & 4.1 & 1.0 & 15.0\\
+\hspace{1em}Nb. Meetings/month & 27 & 53.4 & 29.0 & 1.0 & 91.0\\
+\addlinespace[0.3em]
+\multicolumn{6}{l}{\textbf{groupings}}\\
+\hspace{1em}Has a cat & 27 & 0.4 & 0.5 & 0.0 & 1.0\\
+\hspace{1em}Life satisfaction Index (1-10) & 27 & 7.8 & 1.4 & 5.4 & 9.8\\
+\bottomrule
+\end{tabular}
+\begin{tablenotes}[para]
+\item \textit{Notes:} 
+\item Source is bullshit extracted from the DIAL-IRD website on December 2025. Authors' calculations.
+\end{tablenotes}
+\end{threeparttable}}
+\end{table}
+
+\section{Simple analysis example}\label{simple-analysis-example}
+
+\end{document}
