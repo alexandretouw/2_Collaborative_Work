@@ -175,7 +175,7 @@ model_1 <- feols(life_satisfaction ~ i(as.factor(status), ref = "Doctorant") + c
 
 #model_2 <- feols(life_satisfaction ~ i(as.factor(status), ref = "Doctorant") + coffee_cups_week + i(as.factor(has_cat)) + i(axis), data = members_fun, cluster = ~axis)
 
-#Test
+#Test 2
 
 #List of models 
 list_models <- list(model_1)
