@@ -1,0 +1,175 @@
+\documentclass[10pt]{beamer}
+\usetheme[progressbar=frametitle]{metropolis}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[french,english]{babel}
+\usepackage{booktabs}
+\usepackage[scale=2]{ccicons}
+\usepackage{picture}
+\usepackage{pgfplots}
+\usepgfplotslibrary{dateplot}
+\usepackage{bm}
+\usepackage{mathtools}
+\usepackage{subcaption}
+\usepackage{comment}
+\usepackage{xspace}
+\newcommand{\themename}{\textbf{\textsc{metropolis}}\xspace}
+\usepackage{adjustbox}
+\makeatletter
+\setlength{\metropolis@titleseparator@linewidth}{1pt}
+\setlength{\metropolis@progressonsectionpage@linewidth}{1pt}
+\setlength{\metropolis@progressinheadfoot@linewidth}{1pt}
+\makeatother
+\definecolor{Purple}{HTML}{911146}
+\definecolor{bluecerdi}{HTML}{32567c} 
+\definecolor{Green}{RGB}{168,187,33}
+\definecolor{redcerdi}{HTML}{7c324f} 
+\definecolor{bluered}{RGB}{18, 73, 110}
+\definecolor{UBCblue}{rgb}{0.04706, 0.13725, 0.26667} % UBC Blue (primary)
+\definecolor{UBCgrey}{RGB}{140, 0, 0} 
+\definecolor{orange2}{RGB}{174, 54, 5}
+\usefonttheme{default}   
+\setbeamercolor{background canvas}{bg=white}
+\setbeamercolor{alerted text}{fg=bluecerdi}
+\setbeamercolor{frametitle}{fg=UBCblue}
+\setbeamercolor{frametitle}{bg=white}
+\setbeamertemplate{itemize items}[default]  
+\setbeamerfont{frametitle}{size=\normalsize}
+\usepackage{ragged2e}  
+\justifying 
+%\let\olditem\item
+%\renewcommand\item{\olditem\justifying}
+\usepackage{appendixnumberbeamer}
+\setbeamercolor{button}{bg=lightgray,fg=black}
+\usetikzlibrary{shapes.geometric, arrows.meta, positioning}
+\renewcommand{\raggedright}{\leftskip=0pt \rightskip=0pt plus 0cm}
+
+
+\usepackage{times}
+
+\title{\textbf{SDD - Special Issue : Reproducibility and Project Organisation in Research}\\[0.2em]\Large{\textit{}}}
+%\subtitle{None}
+% \date{\today}
+\date{\today}
+\author{The R Lobby (Flo \& Alex)}
+\institute{\bigskip \bigskip \includegraphics[scale=0.25]{paper_presentation/figures/Dauphine_LOGO.png}\centering}
+%\titlegraphic{\centering  \includegraphics[height=1.1cm]{Figures/logo.png} \includegraphics[height=0.9cm]{Figures/Logo_CES_fond-blanc}\includegraphics[height=1cm]{Figures/pse.jpg}}
+\begin{document}
+
+\begin{frame}[plain]
+
+    \maketitle
+    
+\end{frame}
+
+\begin{frame}{Vue d'ensemble}
+\tableofcontents
+\end{frame}
+
+\section{Project organisation of a research project}
+
+\begin{frame}\frametitle{Folder structure and R project}
+
+
+\alert{Un nombre de réfugiés croissant en France comme dans le monde.}
+\begin{itemize}
+    \item {Mondial} : Niveaux records du nombre de déplacés en 2023 (HCR). 
+    \item {Europe} : De 7 à 12,4 millions de réfugiés  entre 2021 et 2022.
+    \item {France} : Demandes de protection internationale passées de 104 577 en 2021 à 142 500 en 2023 (OFPRA).
+\end{itemize}
+
+\alert{Une population particulièrement sujette aux troubles mentaux.}
+
+\begin{itemize}
+    \item Des expériences d’événements violents et de danger de mort dans le pays d’origine ou au cours de la fuite + des conditions d’accueil dégradées ont des effets durables sur la santé mentale des réfugiés.
+
+    \item Ces troubles affectent la capacité des réfugiés à s'intégrer durablement.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Quarto \textit{v.s.} Rmarkdown}
+
+    
+\end{frame}
+
+\section{Github integration in R}
+
+\begin{frame}{What is Git? What is GitHub?}
+
+\begin{itemize}
+    \item Git: an open source software for version control 
+    \item GitHub: service for collaborating on code using Git 
+\end{itemize}
+
+
+Using Git/GitHub: 
+\begin{itemize}
+    \item serves as a backup 
+    \item allows you to use version control 
+    \item makes it possible to work on the same project at the same time as collaborators 
+
+\end{itemize}
+
+Source: \href{https://rfortherestofus.com/2021/02/how-to-use-git-github-with-r}{R for the rest of us' blogpost about the Github integration in R}
+
+    
+\end{frame}
+
+\begin{frame}{How to setup Git}
+
+See: \href{https://rfortherestofus.com/2021/02/how-to-use-git-github-with-r}{R for the rest of us' blogpost about the Github integration in R}
+
+\begin{itemize}
+    \item \href{https://happygitwithr.com/install-git.html }{Install Git}
+    \item \href{https://happygitwithr.com/hello-git.html}{Configure Git}  
+    \item Initialize a Git Repository
+    \begin{itemize}
+        \item New Project > New Directory > Create Project 
+        \item in Console: library(usethis), use\_git() > creates Git tab in environment 
+        \item You can view make commits and view history (for version control)
+    \end{itemize}
+
+\end{itemize}
+
+
+\end{frame}
+
+\begin{frame}{Github integration in R}
+
+First, connect RSTudio \& GitHub : 
+\begin{itemize}
+    \item Create GitHub account then create Personal Access Token on GitHub (save it!)
+    \item Sync RStudio \& GitHub : library(gitcreds), gitcreds\_set() -> enter PAT 
+\end{itemize}
+
+
+In Github -> create repository
+In R : New project -> Version Control -> Git -> copy repository URL + create clone local repository 
+    
+\end{frame}
+
+\section{Github integration in Overleaf}
+
+\section{Discussion around each others' good practices}
+
+\section{Some useful links}
+\begin{frame}{Some useful links}
+    
+\alert{Reproducibility}
+\begin{itemize}
+    \item \href{https://github.com/FedericoTartarini/reproducible-research}{Federico Tartarini's great repository around reproducible research organisation}
+    \item ...
+\end{itemize}
+
+\alert{Github with R}
+\begin{itemize}
+    \item \href{https://rfortherestofus.com/2021/02/how-to-use-git-github-with-r}{R for the rest of us' blogpost about the Github integration in R}
+    \item ...
+\end{itemize}
+\end{frame}
+
+
+
+
+
+\end{document}
