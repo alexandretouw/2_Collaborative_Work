@@ -36,6 +36,8 @@
 \setbeamertemplate{itemize items}[default]  
 \setbeamerfont{frametitle}{size=\normalsize}
 \usepackage{ragged2e}  
+
+
 \justifying 
 %\let\olditem\item
 %\renewcommand\item{\olditem\justifying}
@@ -70,29 +72,75 @@
 
 \begin{frame}\frametitle{Folder structure and R project}
 
-
-\alert{Un nombre de réfugiés croissant en France comme dans le monde.}
-\begin{itemize}
-    \item {Mondial} : Niveaux records du nombre de déplacés en 2023 (HCR). 
-    \item {Europe} : De 7 à 12,4 millions de réfugiés  entre 2021 et 2022.
-    \item {France} : Demandes de protection internationale passées de 104 577 en 2021 à 142 500 en 2023 (OFPRA).
-\end{itemize}
-
-\alert{Une population particulièrement sujette aux troubles mentaux.}
+\alert{Basic structure we tend to like}
 
 \begin{itemize}
-    \item Des expériences d’événements violents et de danger de mort dans le pays d’origine ou au cours de la fuite + des conditions d’accueil dégradées ont des effets durables sur la santé mentale des réfugiés.
-
-    \item Ces troubles affectent la capacité des réfugiés à s'intégrer durablement.
+    \item \textcolor{blue}{code}
+    \begin{itemize}
+        \item ProjectR.Rmd
+        \item ProjectR.pdf
+    \end{itemize}
+    \item  \textcolor{blue}{data\_in}
+    \begin{itemize}
+        \item rawdata.xlsx
+    \end{itemize}
+    \item \textcolor{blue}{data\_out}
+    \begin{itemize}
+        \item cleandata.xlsx
+    \end{itemize}
+    \item \textcolor{blue}{ProjetR.Rproj}
 \end{itemize}
+
+\alert{Tuto}
+
+Before starting anything, do create a R project at the root of your project, and always open this project before starting to work on your code. 
+
+Different situations imply different configurations $\Rightarrow$ Individual work \textit{v.s.} collaborative work
+
 \end{frame}
 
-\begin{frame}{Quarto \textit{v.s.} Rmarkdown}
+
+\begin{frame}{Quarto and Rmarkdown}
+
+
+\alert{What they are}
+
+\begin{itemize}
+    \item They render documents automatically from your RStudio 
+    \item They allow to mix chunks of code and written text (in LaTeX or other formats)
+    \item They are useful to automatise the generation of tables, stats in the text, and figures
+\end{itemize}
+
+\alert{The differences}
+
+\begin{itemize}
+
+    \item {Language Support}
+        \begin{itemize}
+            \item R Markdown: Primarily R.
+            \item Quarto: Works with R, Python, Julia, and JS.
+        \end{itemize}
+
+    \item {Workflow}
+        \begin{itemize}
+            \item R Markdown: Render via \texttt{knitr} inside RStudio.
+            \item Quarto: Standalone tool; integrates with or without RStudio.
+        \end{itemize}
+
+    \item {Outputs}
+        \begin{itemize}
+            \item Both: HTML, PDF, Word, slides.
+            \item Quarto: More advanced websites, books, and project workflows.
+        \end{itemize}
+\end{itemize}
 
     
 \end{frame}
 
-\section{Github integration in R}
+\section{Github integration in RStudio}
+
+
+
 
 \begin{frame}{What is Git? What is GitHub?}
 
@@ -100,7 +148,7 @@
     \item Git: an open source software for version control 
     \item GitHub: service for collaborating on code using Git 
 \end{itemize}
-
+\vfill
 
 Using Git/GitHub: 
 \begin{itemize}
@@ -109,66 +157,185 @@ Using Git/GitHub:
     \item makes it possible to work on the same project at the same time as collaborators 
 
 \end{itemize}
+\vfill
 
+
+\footnotesize{
 Source: \href{https://rfortherestofus.com/2021/02/how-to-use-git-github-with-r}{R for the rest of us' blogpost about the Github integration in R}
-
+}
     
 \end{frame}
 
 \begin{frame}{How to setup Git}
 
-See: \href{https://rfortherestofus.com/2021/02/how-to-use-git-github-with-r}{R for the rest of us' blogpost about the Github integration in R}
-
 \begin{itemize}
     \item \href{https://happygitwithr.com/install-git.html }{Install Git}
-    \item \href{https://happygitwithr.com/hello-git.html}{Configure Git}  
+    \item \href{https://happygitwithr.com/hello-git.html}{Configure Git} 
+    \end{itemize}
+
+See: \href{https://rfortherestofus.com/2021/02/how-to-use-git-github-with-r}{R for the rest of us' blogpost about the Github integration in R}
+
+\vfill
+
+\begin{itemize}
+
     \item Initialize a Git Repository
     \begin{itemize}
         \item New Project > New Directory > Create Project 
-        \item in Console: library(usethis), use\_git() > creates Git tab in environment 
+        \item in Console: \\
+        \texttt{library(usethis)}\\
+        \texttt{use\_git()} -> creates Git tab in R environment 
         \item You can view make commits and view history (for version control)
     \end{itemize}
 
 \end{itemize}
 
 
+% \begin{verbatim}
+% library(usethis)
+% use\_git()
+% \end{verbatim}
+
 \end{frame}
 
-\begin{frame}{Github integration in R}
+\begin{frame}{Github integration in RStudio}
 
-First, connect RSTudio \& GitHub : 
+(1) Connect RStudio \& GitHub: 
 \begin{itemize}
-    \item Create GitHub account then create Personal Access Token on GitHub (save it!)
-    \item Sync RStudio \& GitHub : library(gitcreds), gitcreds\_set() -> enter PAT 
+    \item Create GitHub account then create Personal Access Token (PAT) on GitHub (save it!)
+    \item Sync RStudio \& GitHub :\\
+    \texttt{library(gitcreds)}\\
+        \texttt{gitcreds\_set()} -> enter PAT 
 \end{itemize}
 
 
-In Github -> create repository
-In R : New project -> Version Control -> Git -> copy repository URL + create clone local repository 
+(2) Connect RStudio projects with GitHub repositories: 
+
+\begin{itemize}
+    \item In Github: Create repository
+    \item In R: New project -> Version Control -> Git -> copy repository URL + create clone local repository 
+\end{itemize}
+
+
+\footnotesize{Other option: if you already have a local project and want make it a GitHub repo:\\
+        \texttt{library(usethis)}\\
+        \texttt{use\_github()} -> creates GitHub repository from local project you're working on}
+
+
+\end{frame}
+
+
+\begin{frame}{Working with RStudio and GitHub}
+
+\textcolor{red}{\textbf{Push}}: Sending any changes in your code from RStudio to GitHub
+    \begin{itemize}
+        \item Save changes, \textcolor{red}{\textbf{commit}} changes, add commit message and click \textbf{Push} (to send these changes to GitHub)
+    \end{itemize}
+    
+\textcolor{red}{\textbf{Pull}}: RStudio goes to the GitHub repo and brings the most recent changes to RStudio 
+\begin{itemize}
+    \item Click Pull to bring changes from collaborators
+    \item This is important when \textbf{collaborating} (if you're working alone, there are no 'new changes' to pull)
+\end{itemize}
+
+
+\end{frame}
+
+
+\begin{frame}{Summary of GitHub/RStudio workflow}
+
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.8\linewidth]{paper_presentation/figures/github_rstudio_workflow.png}
+    \caption{GitHub and RStudio workflow}
+    \label{fig:github_rstudio_workflow}
+\end{figure}
+    
+\end{frame}
+
+\begin{frame}{Collaborating using GitHub}
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.5\linewidth]{paper_presentation/figures/local and remote repo.png}
+    \caption{Local repositories clone remote repository}
+    \label{fig:placeholder}
+\end{figure}
     
 \end{frame}
 
 \section{Github integration in Overleaf}
 
+\begin{frame}{Synchronizing Overleaf with Git/GitHub}
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.5\linewidth]{paper_presentation/figures/github_overleaf_sync.png}
+    \caption{Sync Git and Overleaf}
+    \label{fig:placeholder}
+\end{figure}
+
+Resources: 
+\begin{itemize}
+    \item \href{https://docs.overleaf.com/integrations-and-add-ons/git-integration-and-github-synchronization}{Git integration and Github synchronisation with Overleaf}
+\end{itemize}
+
+
+    
+\end{frame}
+
+\begin{frame}{Overleaf and Git/Github Workflow}
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.5\linewidth]{paper_presentation/figures/github_overleaf.png}
+    \caption{Push and Pull GitHub changes in Overleaf}
+    \label{fig:placeholder}
+\end{figure}
+    
+\end{frame}
+
+\begin{frame}{Example of automatisation}
+\subfile{manuscript/tables/Formated_tables/CountrySpecific_Regressions/educexp_countryraw1.tex}  
+
+    
+\end{frame}
+
 \section{Discussion around each others' good practices}
 
 \section{Some useful links}
-\begin{frame}{Some useful links}
-    
+\begin{frame}[allowframebreaks]{Some useful links}
+
+\alert{General info about R}
+\begin{itemize}
+    \item \href{https://bookdown.org/yihui/rmarkdown/}{General guide Rmarkdown} with an extensive panorama about what you can do
+    \item \href{https://larmarange.github.io/analyse-R/rmarkdown-les-rapports-automatises.html}{A guide in French} very well done by Joseph Larmarange (who's also a great demograph btw)
+    \item \textcolor{red}{Important:} In order to compile PDFs with Rmardown, you must have a LaTeX machine installed on your computer. If that is not already the case, \textit{and in any case}, I suggest you install \href{https://bookdown.org/yihui/rmarkdown-cookbook/install-latex.html}{\textbf{TinyTex}}
+    \item The \href{https://cran.r-project.org/web/packages/kableExtra/vignettes/awesome_table_in_pdf.pdf}{KableExtra} package is particularily useful to present tables in LaTeX format
+    \item The funny \href{https://hadley.github.io/genzplyr/articles/cheatsheet.html}{\textit{genzplyr}} package with some GenZ commands for the youngest among us 
+    \item \href{https://bookdown.org/yihui/rmarkdown/xaringan.html}{Fancy Xaringan presentations}
+\end{itemize}
+
 \alert{Reproducibility}
 \begin{itemize}
     \item \href{https://github.com/FedericoTartarini/reproducible-research}{Federico Tartarini's great repository around reproducible research organisation}
-    \item ...
 \end{itemize}
 
-\alert{Github with R}
+\alert{Github and R}
 \begin{itemize}
     \item \href{https://rfortherestofus.com/2021/02/how-to-use-git-github-with-r}{R for the rest of us' blogpost about the Github integration in R}
-    \item ...
+    \item \href{https://happygitwithr.com/big-picture}{Happy Git with R guide}
 \end{itemize}
+
+
+\alert{Github and Overleaf}
+
+\begin{itemize}
+    \item \href{https://docs.overleaf.com/integrations-and-add-ons/git-integration-and-github-synchronization}{Git integration and Github synchronisation with Overleaf}
+\end{itemize}
+
 \end{frame}
-
-
 
 
 
