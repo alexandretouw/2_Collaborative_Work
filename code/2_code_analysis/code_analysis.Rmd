@@ -71,4 +71,6 @@ ggsave(filename = "meetings_satisfaction.png", plot = fig_meetings_satisfaction,
 ```
 
 
+# Simple analysis example
+
 
