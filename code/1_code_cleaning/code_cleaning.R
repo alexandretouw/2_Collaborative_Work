@@ -5,7 +5,7 @@ library(dplyr)
 library(stringr)
 library(readr)
 library(here)
-library(tidyverse)
+
 #Data import
 members <- read_delim(here("data_in","dial_members.csv"), delim = ";")
 #Set seed 
