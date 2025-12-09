@@ -156,28 +156,28 @@ And here is a stupid analysis :
 \caption{Stupid regression examples}
 \begin{center}
 \scalebox{1}{
-\begin{tabular}{l c}
+\begin{tabular}{l c c}
 \toprule
- & Model 1 \\
+ & Model 1 & Model 2 \\
 \midrule
-Doctorante              & $-0.19$    \\
-                        & $(0.48)$   \\
-Post-Doc                & $0.58$     \\
-                        & $(0.75)$   \\
-Nb. Coffee cups/week    & $0.01$     \\
-                        & $(0.03)$   \\
-Has a cat               & $0.61^{*}$ \\
-                        & $(0.29)$   \\
+Doctorante              & $-0.19$    & $-0.95$  \\
+                        & $(0.48)$   & $(1.12)$ \\
+Post-Doc                & $0.58$     & $0.27$   \\
+                        & $(0.75)$   & $(0.95)$ \\
+Nb. Coffee cups/week    & $0.01$     & $0.07$   \\
+                        & $(0.03)$   & $(0.06)$ \\
+Has a cat               & $0.61^{*}$ & $-0.02$  \\
+                        & $(0.29)$   & $(0.21)$ \\
 \midrule
-Research Axis FE        & Non        \\
-Moy. Doctorants         & $7.90$     \\
-Num. obs.               & $27$       \\
-R$^2$ (full model)      & $0.08$     \\
-R$^2$ (proj model)      & $$         \\
-Adj. R$^2$ (full model) & $-0.08$    \\
-Adj. R$^2$ (proj model) & $$         \\
+Research Axis FE        & Non        & Oui      \\
+Moy. Doctorants         & $7.90$     & $7.90$   \\
+Num. obs.               & $27$       & $27$     \\
+R$^2$ (full model)      & $0.08$     & $0.67$   \\
+R$^2$ (proj model)      & $$         & $$       \\
+Adj. R$^2$ (full model) & $-0.08$    & $0.06$   \\
+Adj. R$^2$ (proj model) & $$         & $$       \\
 \bottomrule
-\multicolumn{2}{l}{\scriptsize{Cluster au niveau des thèmes de recherche}}
+\multicolumn{3}{l}{\scriptsize{Cluster au niveau des thèmes de recherche}}
 \end{tabular}
 }
 \label{table:coefficients}
