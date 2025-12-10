@@ -147,23 +147,6 @@ k_desc_table
 ```
 
 
-```{r table-by-axis, eval=F}
-
-desc_table_raxis <- members_fun %>%
-  group_by(axis) %>% 
-  summarise( n =n(),
-             across(all_of(vars),
-             list(
-               mean = ~mean(., na.rm = TRUE),
-               sd = ~sd(., na.rm = TRUE),
-               min = ~min(., na.rm = TRUE), 
-               max = ~max(., na.rm = TRUE)),
-             .names = "{.col}_{.fn}"),
-            .groups = "drop")
-
-
-```
-
 \newpage
 # Simple analysis example
 
