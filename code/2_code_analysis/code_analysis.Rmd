@@ -130,7 +130,7 @@ k_desc_table <- kable(desc_table,
                       col.names = c("Variable","Nb. Obs", "Mean", "SD", "Min", "Max"),
                       row.names = F, 
                       escape = F) %>%
- kable_styling(latex_options = c("hold_position","scale_down")) %>%
+ kable_styling(latex_options = c("hold_position", font_size = 8)) %>%
   row_spec(0, bold = F) %>%
   add_header_above(c(" ", "I" = 1, "can add"= 2, "stuff above" = 2)) %>%
   pack_rows("And create", 1, 2) %>%
@@ -184,7 +184,7 @@ stupidreg <- texreg(list_models,
        #   "\\textbf{Citoyenneté}" = 4:6,
        #   "\\textbf{Intégration}" = 7:10),
        custom.note = paste0("Cluster au niveau des thèmes de recherche"),
-       scalebox = 0.8,
+       scalebox = 0.7,
        use.packages = FALSE,
        booktabs = TRUE,
        float.pos = "h")
