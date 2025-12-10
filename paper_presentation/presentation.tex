@@ -297,8 +297,20 @@ Resources:
     
 \end{frame}
 
+\begin{frame}{Examples of automatisation}
+
+\begin{itemize}
+    \item The idea is that you only have to call the figures and tables in this latex presentation 
+    \item The code of the presentation will thus be stable 
+    \item You only have to make changes in the .Rmd codes to change how your tables and figures look like
+    \item The just commit and push your modifications from your repo to Github (either using the Github desktop app or using the integrated Git in RStudio)
+    \item In Overleaf, you just have to sync your Github repo by pulling the modifications from your Github to Overleaf as described in the previous slide
+\end{itemize}
+\end{frame}
 
 \begin{frame}{Example of automatisation - Stupid figure}
+
+You can play by changing the code related to your figure using the \texttt{ggplot} command in the \texttt{code\_analysis.Rmd} file.
 
 \begin{figure}[!ht] 
    \centering
@@ -311,11 +323,15 @@ Resources:
 
 \begin{frame}{Example of automatisation - Stupid descriptive statistics table}
 
+You can play by changing how your table looks like using the \texttt{kable} command in the \texttt{code\_analysis.Rmd} file.
+
 \input{paper_presentation/tables/desc_stats.tex}  
     
 \end{frame}
 
 \begin{frame}{Example of automatisation - Regression table}
+
+You can play by changing the list of models in the \texttt{code\_analysis.Rmd} file and adding more and more models, changing the scale of the table, etc.
 
 \input{paper_presentation/tables/stupidreg.tex}  
 
