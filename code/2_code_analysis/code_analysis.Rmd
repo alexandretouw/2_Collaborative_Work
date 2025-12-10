@@ -201,7 +201,7 @@ stupidreg <- texreg(list_models,
        #   "\\textbf{Citoyenneté}" = 4:6,
        #   "\\textbf{Intégration}" = 7:10),
        custom.note = paste0("Cluster au niveau des thèmes de recherche"),
-       scalebox = 1.0,
+       scalebox = 0.8,
        use.packages = FALSE,
        booktabs = TRUE,
        float.pos = "h")
