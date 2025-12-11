@@ -10,7 +10,7 @@ It is intended as a template for PhD students, coauthors, and research teams who
 **Repository Structure**
 
 2_Collaborative_Work/
-
+|
 ├── 2_Collaborative_Work.Rproj       # RStudio project (recommended entry point)
 │
 ├── code/
