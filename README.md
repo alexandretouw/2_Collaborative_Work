@@ -126,5 +126,6 @@ Pull requests & issues are welcome.
 
 ## Contact
 
-Maintainers: Alexandre Touw and Florence Lecuit
+Maintainers: Alexandre Touw and Florence Lecuit.
+
 Feel free to reuse or adapt this structure for your own research collaborations.
