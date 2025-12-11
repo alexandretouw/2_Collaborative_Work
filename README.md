@@ -35,13 +35,13 @@ Not that this structure is an example of a repository for which data can be shar
 This repository demonstrates how to separate tasks in a collaborative research project:
 
 1. R code lives in code/ and is version-controlled on GitHub
-	•	Every coauthor can work on the same R scripts.
-	•	Data cleaning and analysis are reproducible.
-	•	Figures and tables are generated automatically from R.
+   - Every coauthor can work on the same R scripts.
+   - Data cleaning and analysis are reproducible.
+   - Figures and tables are generated automatically from R.
 
 2. Outputs (figures & tables) are exported into paper_presentation/
-	•	Figures → paper_presentation/figures/
-	•	Tables → paper_presentation/tables/
+   - Figures → paper_presentation/figures/
+   - Tables → paper_presentation/tables/
 
 These folders serve as the single source of truth for Overleaf.
 
@@ -68,15 +68,15 @@ As long as filenames remain the same, the LaTeX code on Overleaf never needs to 
 ### Step 1 — Edit or expand R scripts
 
 You modify the code inside code/:
-	•	clean data
-	•	run analyses
-	•	produce tables and figures
+- clean data
+- run analyses
+- produce tables and figures
 
 ### Step 2 — R automatically exports all outputs 
 
 Running the R scripts regenerates:
-	•	updated .png or .pdf figures
-	•	updated .tex tables
+- updated .png or .pdf figures
+- updated .tex tables
 
 These are saved in paper_presentation/figures/ and paper_presentation/tables/.
 
@@ -90,37 +90,38 @@ You write your paper/presentation in Overleaf by calling the figures and tables 
 The content (figures/tables) updates automatically via GitHub when you modify it in R.
 
 ### Result: a fully synchronized workflow
-	•	edit R code
-	•	run
-	•	commit and push
-	•	Pull changes from Github to Overleaf so that Overleaf updates automatically
-	•	coauthors always see the latest results
+
+- edit R code
+- run
+- commit and push
+- Pull changes from Github to Overleaf so that Overleaf updates automatically
+- coauthors always see the latest results
 
 No more:
-	•	“final_table2_v3_ok_def.tex”
-	•	“last_new_figure_updated_bis.png”
-	•	emailing PDFs between coauthors
-	•	inconsistencies between versions
+- “final_table2_v3_ok_def.tex”
+- “last_new_figure_updated_bis.png”
+- emailing PDFs between coauthors
+- inconsistencies between versions
 
 
 ## Example Included in This Repository
 
 The project includes:
-	•	a small synthetic dataset
-	•	a toy "analysis_code“ exporting a figure, a descriptive statistics table and a regression analysis table
-	•	a Beamer presentation illustrating the workflow
+- a small synthetic dataset
+- a toy "analysis_code“ exporting a figure, a descriptive statistics table and a regression analysis table
+- a Beamer presentation illustrating the workflow
 
 This is intended as a didactic example showing how assets move from: RStudio → GitHub → Overleaf → PDF output
 
 ## Contribution & Extensions
 
 This repo can be extended to:
-	•	full papers with multiple sections
-	•	more complex analyses 
-	•	multi-author workflows using Git branching
-	•	fully automated pipelines using {targets} or {drake}
-	•	Quarto integration for unified R+LaTeX reports (Rmarkdown is used here)
-	•	replication packages for journal submissions
+- full papers with multiple sections
+- more complex analyses 
+- multi-author workflows using Git branching
+- fully automated pipelines using {targets} or {drake}
+- Quarto integration for unified R+LaTeX reports (Rmarkdown is used here)
+- replication packages for journal submissions
 
 Pull requests & issues are welcome.
 
