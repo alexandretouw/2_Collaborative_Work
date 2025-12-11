@@ -1,4 +1,4 @@
-**Collaborative Workflow Example: RStudio × GitHub × Overleaf**
+# Collaborative Workflow Example: RStudio × GitHub × Overleaf 
 
 This repository provides a minimal, fully reproducible example of how to organize collaborative research work using:
 	•	GitHub → version control & collaboration on code
@@ -7,7 +7,7 @@ This repository provides a minimal, fully reproducible example of how to organiz
 
 It is intended as a template for PhD students, coauthors, and research teams who want a clean, consistent, automated workflow for empirical work.
 
-**Repository Structure**
+## Repository Structure
 
 ```
 2_Collaborative_Work/
@@ -30,7 +30,7 @@ It is intended as a template for PhD students, coauthors, and research teams who
 
 Not that this structure is an example of a repository for which data can be shared and is not too large. In a situation for which data cannot be placed in a repo, you must find another general repo structure such as placing your data folders and .Rproj outside the repo but leaving the code folder inside.
 
-**Purpose of This Repository**
+## Purpose of This Repository
 
 This repository demonstrates how to separate tasks in a collaborative research project:
 
@@ -56,11 +56,11 @@ The Overleaf project associated with this example is:
 🔗 https://www.overleaf.com/read/sksxfsykywsw
 
 The .tex files on Overleaf simply reference the files stored in this repository, e.g.:
-
+```
 \includegraphics{figures/meetings_satisfaction.png}
 
 \input{tables/desc_stats.tex}
-
+```
 As long as filenames remain the same, the LaTeX code on Overleaf never needs to be changed so that figures and tables can be updated directly in R.
 
 **How the Workflow Works in Practice**
