@@ -1,9 +1,9 @@
 # Collaborative Workflow Example: RStudio × GitHub × Overleaf 
 
 This repository provides a minimal, fully reproducible example of how to organize collaborative research work using:
-	•	GitHub → version control & collaboration on code
-	•	RStudio → data cleaning, analysis, automatic generation of figures/tables
-	•	Overleaf → writing papers and presentations that pull results directly from the repo
+- GitHub → version control & collaboration on code
+- RStudio → data cleaning, analysis, automatic generation of figures/tables
+- Overleaf → writing papers and presentations that pull results directly from the repo
 
 It is intended as a template for PhD students, coauthors, and research teams who want a clean, consistent, automated workflow for empirical work.
 
