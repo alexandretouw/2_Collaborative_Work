@@ -63,16 +63,16 @@ The .tex files on Overleaf simply reference the files stored in this repository,
 ```
 As long as filenames remain the same, the LaTeX code on Overleaf never needs to be changed so that figures and tables can be updated directly in R.
 
-**How the Workflow Works in Practice**
+## How the Workflow Works in Practice 
 
-*Step 1 — Edit or expand R scripts*
+### Step 1 — Edit or expand R scripts
 
 You modify the code inside code/:
 	•	clean data
 	•	run analyses
 	•	produce tables and figures
 
-*Step 2 — R automatically exports all outputs*
+### Step 2 — R automatically exports all outputs 
 
 Running the R scripts regenerates:
 	•	updated .png or .pdf figures
@@ -80,16 +80,16 @@ Running the R scripts regenerates:
 
 These are saved in paper_presentation/figures/ and paper_presentation/tables/.
 
-*Step 3 — Commit & push to GitHub*
+### Step 3 — Commit & push to GitHub
 
 Once committed, the updated results are immediately available in your Github repo. You only need to pull them to Overleaf with the Github integration of Overleaf.
 
-*Step 4 — Overleaf stays stable*
+### Step 4 — Overleaf stays stable
 
 You write your paper/presentation in Overleaf by calling the figures and tables with \includegraphics{} and \input{} commands. You don't have to import manually the figures and tables into Overleaf once the LaTeX code is table, because all file paths stay the same.
 The content (figures/tables) updates automatically via GitHub when you modify it in R.
 
-*Result: a fully synchronized workflow*
+### Result: a fully synchronized workflow
 	•	edit R code
 	•	run
 	•	commit and push
@@ -103,7 +103,7 @@ No more:
 	•	inconsistencies between versions
 
 
-**Example Included in This Repository**
+## Example Included in This Repository
 
 The project includes:
 	•	a small synthetic dataset
@@ -112,7 +112,7 @@ The project includes:
 
 This is intended as a didactic example showing how assets move from: RStudio → GitHub → Overleaf → PDF output
 
-**Contribution & Extensions**
+## Contribution & Extensions
 
 This repo can be extended to:
 	•	full papers with multiple sections
@@ -124,7 +124,7 @@ This repo can be extended to:
 
 Pull requests & issues are welcome.
 
-**Contact**
+## Contact
 
 Maintainers: Alexandre Touw and Florence Lecuit
 Feel free to reuse or adapt this structure for your own research collaborations.
