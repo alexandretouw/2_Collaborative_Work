@@ -9,6 +9,7 @@ It is intended as a template for PhD students, coauthors, and research teams who
 
 **Repository Structure**
 
+```
 2_Collaborative_Work/
 |
 ├── 2_Collaborative_Work.Rproj       # RStudio project (recommended entry point)
@@ -25,6 +26,7 @@ It is intended as a template for PhD students, coauthors, and research teams who
     ├── tables/                      # Tables automatically exported by R (.tex)
     ├── presentation.tex             # Example Beamer presentation
     └── paper.tex                    # Placeholder for a future research paper
+```
 
 Not that this structure is an example of a repository for which data can be shared and is not too large. In a situation for which data cannot be placed in a repo, you must find another general repo structure such as placing your data folders and .Rproj outside the repo but leaving the code folder inside.
 
